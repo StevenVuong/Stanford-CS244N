@@ -7,3 +7,11 @@
 -  Cosine distance is a metric for how much space 'must be travelled' to get from one point to another; and can examine the angle between them as such
 
 ## Notes on Reading GloVE paper:
+Link: https://nlp.stanford.edu/pubs/glove.pdf
+
+-  Combines matrix factorization & local context window with log-bilinear regression model
+-  Evaluation scheme favours models that produce dimensions of meaning; `queen=man-woman`
+-  Co-occurace probabilities; so find that probabilities between word corpora is large for where relevant
+    -  Model vector differences to try to achieve co-occurance probabilities
+    -  Adding bias can restore symmetry
+-  Xi = sum of X; number of times any word appears in the context of word i. And Pij = P(j|i) = Xij/X; probability word j appears in context of word i
