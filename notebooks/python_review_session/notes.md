@@ -1,0 +1,13 @@
+# Notes:
+-  Classes can have @classmethods (unlikely will ever need) & instance methods
+-  List is not hashable; dict and set is hash table, but set only stores keys. Tuples have fixed size & are hashable
+    -  Dict is not hashable; dynamic size with no duplicates allowed. Hash table implementation which is quick to search
+-  Can have named tuples `from collections import namedtuple` for readability
+-  Can use `collections counter` to help as a counting tool
+-  Numpy: [2,2,-1]: -1 for auto-fill
+    -  e.squeeze(): remove unnecessary dimensions
+    -  expand_dims(a, 0): [1,8]; (inserts dimenson at 0)
+    -  Numpy concatenate to concat arrays
+    -  Numpy.transpose(a, (2,1,0)): swaps 0th and 2nd axis
+    -  np.dot(c,d) = c@d; (matrix mult)
+        -  batch@weight + bias
