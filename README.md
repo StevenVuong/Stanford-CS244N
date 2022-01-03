@@ -7,3 +7,5 @@ In Order:
 3.  assignment1
 4.  pytorch tutorial
 5.  assignment2
+6.  vanishing_grad_example.html
+7.  assignment3
