@@ -30,8 +30,14 @@ class ParserModel(nn.Module):
             in other ParserModel methods.
         - For further documentation on "nn.Module" please see https://pytorch.org/docs/stable/nn.html.
     """
-    def __init__(self, embeddings, n_features=36,
-        hidden_size=200, n_classes=3, dropout_prob=0.5):
+    def __init__(
+        self, 
+        embeddings, 
+        n_features=36,
+        hidden_size=200, 
+        n_classes=3, 
+        dropout_prob=0.5
+        ):
         """ Initialize the parser model.
 
         @param embeddings (ndarray): word embeddings (num_words, embedding_size)
@@ -72,8 +78,12 @@ class ParserModel(nn.Module):
         ###     Dropout: https://pytorch.org/docs/stable/nn.html#dropout-layers
         ### 
         ### See the PDF for hints.
+        self.embed_to_hidden = nn.Linear(self.embed_size * self.n_features, hidden_size)
+        self.dropout = nn.Dropout(self.dropout_prob)
+        self.hidden_to_logits = nn.Linear(hidden_size, self.n_classes)
 
-
+        nn.init.xavier_uniform_(self.embed_to_hidden.weight, gain=1)
+        nn.init.xavier_uniform_(self.hidden_to_logits.weight, gain=1)
 
 
         ### END YOUR CODE
@@ -107,7 +117,9 @@ class ParserModel(nn.Module):
         ###     View: https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view
         ###     Flatten: https://pytorch.org/docs/stable/generated/torch.flatten.html
 
-
+        tmp_features = self.embeddings[w]
+        shape = tmp_features.size()
+        x = tmp_features.view(shape[0], shape[1] * shape[2])
 
         ### END YOUR CODE
         return x
@@ -143,7 +155,11 @@ class ParserModel(nn.Module):
         ### Please see the following docs for support:
         ###     Matrix product: https://pytorch.org/docs/stable/torch.html#torch.matmul
         ###     ReLU: https://pytorch.org/docs/stable/nn.html?highlight=relu#torch.nn.functional.relu
-
+        x = self.embedding_lookup(w)
+        x = self.embed_to_hidden(x)
+        x = nn.functional.relu(x)
+        x = self.dropout(x)
+        logits = self.hidden_to_logits(x)
 
         ### END YOUR CODE
         return logits
