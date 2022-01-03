@@ -8,6 +8,7 @@ stanfordSentimentTreebank/
 *.pickle
 *.npy
 __MACOSX/
+*.weights
 
 # C extensions
 *.so
