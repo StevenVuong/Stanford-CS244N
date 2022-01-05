@@ -9,6 +9,8 @@ stanfordSentimentTreebank/
 *.npy
 __MACOSX/
 *.weights
+*.pkl
+chr_en_data/
 
 # C extensions
 *.so
