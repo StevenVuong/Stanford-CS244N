@@ -11,6 +11,7 @@ __MACOSX/
 *.weights
 *.pkl
 chr_en_data/
+vocab.json
 
 # C extensions
 *.so
