@@ -24,5 +24,9 @@ Answers to Written Questions:
     This is important as we only want real word entries; so filter away any contribution of 'pad' entries in a way, computing the 
     attention weights at, since they will all become 0. The non-zero attention weights will only be computed for real tokens 
     in the sequence.
--  Answer to 1e) <br>
-    asda
+-  1hi) <br>
+    Dot product attention is faster to compute and requires less parameters <br>
+    However it is less expressive, the representational power is lower due to lack of parameters.
+-  1hii) <br>
+    Additive attention can freely control the dimension of the attention scores; making it more versatile for certain application. <br>
+    One disadvantage is that it can require more parameters and be less efficient to compute than multiplicative attention.
