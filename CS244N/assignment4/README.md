@@ -30,3 +30,13 @@ Answers to Written Questions:
 -  1hii) <br>
     Additive attention can freely control the dimension of the attention scores; making it more versatile for certain application. <br>
     One disadvantage is that it can require more parameters and be less efficient to compute than multiplicative attention.
+    <p>
+-  2a) Cherokee is a polysynthetic language, ie. its words are composed of may morphmemes. The lengths of Cherokee words
+    can vary a lot, and its vocabulary can be extremely large due to unlimited combinations and permutations or morphmemes (the smallest grammatical unit of speech). Therefore, modelling Cherokee-to-English NMT problem at morphmeme-level or subword-level makes sense; as opposed to word level
+-  2b) The amount of characters/subwords are smaller than that of all the words, so there are less character/subword    embeddings than word embeddings
+-  2c) Multilingual training can provide the model with more data than a single data-scarce language can proide. These are effective at generalization, and capable of capturing representational similarity across a large body of languages. Languages can transfer knowledge from each other.
+-   2d) NMT System repeated the translation of the latter part of sentence in the middle of the translation. This error may have occured by placing an overly high attention to the latter part of the sentence. We can possibly fix this by adjusting the attention weights according to the location of the words. Or adding more recurrent layers for encoder to further encode inter-word relationship.
+-  2dii) NMT picked wrong pronoun. Likely caused by final softmax output with vocabulary projection. A possible fix would be to add more layers to the final vocabulary projection.
+-  2diii) NMT system has meaning correct but fail to express a special word. Error is likely caused by low memory power or representational capacity of the model. Possible fix is to add more layers to projection layers of encoder & decoder which are currently single-layer.
+-  2fiii) Single reference translation may be biased by a single human translator's preference or habit. Not unbiased or fair representation of ood translation, so can be biased and not comprehensive.
+
