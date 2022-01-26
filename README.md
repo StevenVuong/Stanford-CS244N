@@ -10,3 +10,4 @@ In Order:
 6.  vanishing_grad_example.html
 7.  assignment3
 8.  assignment4
+9.  assignment5 
